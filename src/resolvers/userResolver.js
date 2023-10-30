@@ -2,17 +2,28 @@ const mongoose = require('mongoose');
 const users = require('../model/user');
 const userRessolver = {
   Query: {
-    users: () => getUsers(),
+    users: (_, args) => getUsers(args),
   },
 };
 
-const getUsers = async() => {
+const getUsers = async (args) => {
   try {
-    const user = await users.find();
-    return user;
+
+    if (args.search) {
+      const query = { ...args.search };
+      console.log("fhd", query)
+      
+      const Users = await users.find(query);
+      return Users;
+    }
+    else {
+      const Users = await users.find();
+      return Users;
+    }
+
   } catch (error) {
     console.error('Error fetching users:', error);
-    return [];
+    return [{ 'Error fetching users': error }];
   }
 }
 

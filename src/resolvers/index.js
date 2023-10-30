@@ -1,5 +1,6 @@
 const userRessolver  = require("./userResolver");
+const adduserRessolver = require("./addUser");
 
-const resolvers = { ...userRessolver };
+const resolvers = { ...userRessolver, ...adduserRessolver };
 
 module.exports = { resolvers };

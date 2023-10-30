@@ -7,11 +7,18 @@ type User {
     active: Boolean
     city: String
 }
+input userInput{
+    fname: String
+    lname: String
+    mobile: String
+    active: Boolean
+    city: [String]
+}
 `
 
 const users =`#graphql
 type Query{
-    users: [User]
+    users(search:userInput): [User]
 }
 `
 
