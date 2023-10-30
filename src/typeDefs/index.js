@@ -1,4 +1,4 @@
-const users  = require("./demo");
+const users  = require("./userTypes");
 
 const typeDefs = [users];
 

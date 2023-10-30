@@ -3,10 +3,11 @@ const { typeDefs } = require("./src/typeDefs/index");
 const { resolvers } = require("./src/resolvers/index");
 const { startStandaloneServer } = require("@apollo/server/standalone"); 
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 const server = new ApolloServer({ typeDefs, resolvers } );
-
+dotenv.config();
 mongoose
-  .connect('mongodb+srv://admin:fX5hm0b6LX56RFIH@cluster0.hd0kk9y.mongodb.net/Test?retryWrites=true&w=majority')
+  .connect(process.env.MONGO_URL)
   .then(() => console.log("connected"))
   .catch((err) => console.log(err));
 

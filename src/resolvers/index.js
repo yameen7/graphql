@@ -1,4 +1,4 @@
-const userRessolver  = require("./demo");
+const userRessolver  = require("./userResolver");
 
 const resolvers = { ...userRessolver };
 

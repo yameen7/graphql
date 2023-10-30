@@ -1,4 +1,3 @@
-
 const userTypes =`#graphql
 
 type User {
@@ -8,7 +7,6 @@ type User {
     active: Boolean
     city: String
 }
-
 `
 
 const users =`#graphql
