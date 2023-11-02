@@ -19,6 +19,7 @@ input userInput{
 const users =`#graphql
 type Query{
     users(search:userInput): [User]
+    searchUsers(search:String!):[User]
 }
 `
 
